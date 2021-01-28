@@ -1,0 +1,21 @@
+<h1>Listing all movies</h1>
+<p>
+<% @movies.each do |movie| %>
+</p>
+<p>
+Title: <%= movie.title %>
+</p>
+<p>
+Description: <%= movie.desc %>
+</p>
+
+<p>
+ Genres: <%= movie.genres %>
+</p>
+
+<p>
+ Language: <%= movie.original_language %>
+ </p>
+
+ <p>-----------------------------------------------------</p>
+<% end %>
