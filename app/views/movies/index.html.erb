@@ -1,4 +1,22 @@
+<h1>User Info</h1>
+<h2>User name: <%=  @user.email.split('@')[0]%></h2>
+<% if current_user.present? %>
+    <%= link_to "Log out", destroy_user_session_path, :method => "delete" %>  
+<% else %>
+    <%= link_to "Log in", new_user_session_path %>  
+    <%= link_to "Sign up", new_user_registration_path %>  
+<% end %>
+
+
 <h1>Listing all movies</h1>
+
+<div>
+    <%= link_to "Add new movie", new_movie_path %>  
+
+    <p>***********************************************</p>
+</div>
+
+
 <p>
 <% @movies.each do |movie| %>
 </p>
@@ -16,6 +34,15 @@ Description: <%= movie.desc %>
 <p>
  Language: <%= movie.original_language %>
  </p>
+
+ <p style="color:red">
+ User create:  <%=  movie.user.email.split('@')[0]%>
+ </p>
+<div>
+    <%= link_to "View", movie_path(movie) %>  
+    <%= link_to "Edit", edit_movie_path(movie) %>  
+    <%= link_to "delete", movie_path(movie), :method => "delete" %>
+</div>
 
  <p>-----------------------------------------------------</p>
 <% end %>
